@@ -1,0 +1,44 @@
+{
+  "tests": [
+    {
+      "name": "sample test",
+      "setup": "gcc main.c rb.c -lm; if [ ! -d rb_test ]; then git clone -q 'git@github.com-rb:dics-seas-num/rb_test.git'; fi; /usr/bin/timeout -k 5s -s 9 5s ./a.out < rb_test/sample/input.txt > output.txt",
+      "run": "diff -q output.txt rb_test/sample/output.txt",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 1,
+      "points": 1
+    },
+    {
+      "name": "only put and get test",
+      "setup": "gcc main.c rb.c -lm; if [ ! -d rb_test ]; then git clone -q 'git@github.com-rb:dics-seas-num/rb_test.git'; fi; /usr/bin/timeout -k 5s -s 9 5s ./a.out < rb_test/put/input.txt > output.txt",
+      "run": "diff -q output.txt rb_test/put/output.txt",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 1,
+      "points": 2
+    },
+    {
+      "name": "small test",
+      "setup": "gcc main.c rb.c -lm; if [ ! -d rb_test ]; then git clone -q 'git@github.com-rb:dics-seas-num/rb_test.git'; fi; /usr/bin/timeout -k 5s -s 9 5s ./a.out < rb_test/small/input.txt > output.txt",
+      "run": "diff -q output.txt rb_test/small/output.txt",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 1,
+      "points": 3
+    },
+    {
+      "name": "big test",
+      "setup": "gcc main.c rb.c -lm; if [ ! -d rb_test ]; then git clone -q 'git@github.com-rb:dics-seas-num/rb_test.git'; fi; /usr/bin/timeout -k 5s -s 9 5s ./a.out < rb_test/big/input.txt > output.txt",
+      "run": "diff -q output.txt rb_test/big/output.txt",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 1,
+      "points": 4
+     }
+  ]
+}

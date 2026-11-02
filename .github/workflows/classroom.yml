@@ -1,0 +1,35 @@
+ 
+name: RBT Submission Check
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'rb.c'
+      - 'main.c'
+      - 'DS.h'
+      - 'Makefile'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    name: Check RBT Submission
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout student code
+        uses: actions/checkout@v4
+
+      - name: Compile RBT
+        run: |
+          gcc main.c rb.c -lm -o program
+
+      - name: Submission information
+        run: |
+          echo "RBT submission compiled successfully."
+          echo "Repository: $GITHUB_REPOSITORY"
+          echo "Commit: $GITHUB_SHA"
+          echo "Final grading is performed by the teacher grader."
